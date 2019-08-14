@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export function getMembers_api(){
-    return axios.get('')
+    return axios.get('http://www.mocky.io/v2/5d480fbd3300009287a3eceb')
 }
 
 export function addMember_api(user) {
@@ -23,4 +23,18 @@ export function deleteMember_api(member) {
     return axios.post('', {
         
     })
+}
+
+export function getBoardMembers_api() {
+    return axios.get('')
+}
+
+export function addBoardMember_api(member) {
+    console.log("member in api: ", member);
+    //todo
+}
+
+export function deleteBoardMember_api(member) {
+    console.log("member in api: ", member);
+    //todo
 }

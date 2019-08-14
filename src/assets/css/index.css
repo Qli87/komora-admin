@@ -1,0 +1,52 @@
+.searchAligment {
+    text-align: right;
+}
+
+.searchInput {
+    margin-left: 5px;
+}
+
+.iconsStyle {
+    margin-left: 5px;
+}
+
+.sortCursor {
+    cursor: pointer;
+}
+
+.modalButton {
+    background-color: white;
+    border: 1px solid lightgrey;
+    font-size: 14px
+}
+
+.spanButton {
+    margin-right: 5px
+}
+
+.modalStyle {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-bottom: 3px solid #d2d6de;
+    margin-bottom: 30px;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+.buttonsDivModal {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.buttonRightModal {
+    margin-left: 5px;
+}
+
+.addMemberMargin {
+    margin-top: 5px;
+}
+
+.addContent {
+    width: 50%  
+}

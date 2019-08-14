@@ -1,4 +1,7 @@
 export const userPath = {
     homePage: '/pocetna',
-    contact: '/kontakt'
+    contact: '/kontakt',
+    membersList: '/spisakClanova',
+    addMember: '/dodajClana',
+    editMember: '/izmjeniClana'
 }

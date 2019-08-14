@@ -45,21 +45,21 @@ export function addMembar_failure(error) {
 
 export function editMember_request(member) {
     return {
-        type: memberConstants.EDITUSER_REQUEST,
+        type: memberConstants.EDITMEMBER_REQUEST,
         payload: member
     }
 }
 
 export function editMember_success(member) {
     return {
-        type: memberConstants.EDITUSER_SUCCESS,
+        type: memberConstants.EDITMEMBER_SUCCESS,
         payload: member
     }
 }
 
 export function editMember_failure(error) {
     return {
-        type: memberConstants.EDITUSER_FAILURE,
+        type: memberConstants.EDITMEMBER_FAILURE,
         payload: error
     }
 }
@@ -81,6 +81,98 @@ export function deleteMember_success(member) {
 export function deleteMember_failure(error) {
     return {
         type: memberConstants.DELETEMEMBER_FAILURE,
+        payload: error
+    }
+}
+
+// GET BOARD MEMBERS ACTIONS
+export function getBoardMembers_request(members) {
+    return {
+        type: memberConstants.GETBOARDMEMBERS_REQUEST,
+        payload: members
+    }
+}
+
+export function getBoardMembers_success(members) {
+    return {
+        type: memberConstants.GETBOARDMEMBERS_SUCCESS,
+        payload: members
+    }
+}
+
+export function getBoardMembers_failure(error) {
+    return {
+        type: memberConstants.GETBOARDMEMBERS_FAILURE,
+        payload: error
+    }
+}
+// END GET BOARD MEMBERS ACTIONS
+
+// ADD BOARD MEMBERS ACTIONS
+export function addBoardMember_request(member) {
+    return {
+        type: memberConstants.BOARDMEMBERADD_REQUEST,
+        payload: member
+    }
+}
+
+export function addBoardMember_success(member) {
+    return {
+        type: memberConstants.BOARDMEMBERADD_SUCCESS,
+        payload: member
+    }
+}
+
+export function addBoardMember_failure(error) {
+    return {
+        type: memberConstants.BOARDMEMBERADD_FAILURE,
+        payload: error
+    }
+}
+
+//END ADD BOARD MEMBERS ACTIONS
+
+//DELETE BOARD MEMEBERS ACTIONS
+export function deleteBoardMember_request(member){
+    return {
+        type: memberConstants.BOARDMEMBERDELETE_REQUEST,
+        payload: member
+    }
+}
+
+export function deleteBoardMember_success(member){
+    return {
+        type: memberConstants.BOARDMEMBERDELETE_SUCCESS,
+        payload: member
+    }
+}
+
+export function deleteBoardMember_failure(error){
+    return {
+        type: memberConstants.BOARDMEMBERDELETE_FAILURE,
+        payload: error
+    }
+}
+//END DELETE BOARD MEMEBERS ACTIONS
+
+export function getMemberDetails_request(member) {
+    return {
+        type: memberConstants.GETMEMBERDETAILS_REQUEST,
+        payload: member
+    }
+}
+
+export function getMemberDetails_success(member) {
+    console.log('action : ', member);
+    return {
+        type: memberConstants.GETMEMBERDETAILS_SUCCESS,
+        payload: member
+    }
+}
+
+export function getMemberDetails_failure(error) {
+    return {
+        type: memberConstants.GETMEMBERDETAILS_FAILURE,
         payload: error
     }
 }
