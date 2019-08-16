@@ -11,6 +11,10 @@ class App extends React.Component {
           <Route path='/spisakClanova' component={PageRouting} />
           <Route path='/dodajClana' component={PageRouting} />
           <Route path='/izmjeniClana' component={PageRouting} />
+          <Route path='/clanoviOdbora' component={PageRouting} />
+          <Route path='/biografija' component={PageRouting} />
+          <Route path='/clanoviSkupstine' component={PageRouting} />
+          <Route path='/vijesti' component={PageRouting} />
       </Router>
     )
   }

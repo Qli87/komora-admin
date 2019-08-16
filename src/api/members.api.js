@@ -26,7 +26,7 @@ export function deleteMember_api(member) {
 }
 
 export function getBoardMembers_api() {
-    return axios.get('')
+    return axios.get('http://www.mocky.io/v2/5d415a2b3100004d005392ba')
 }
 
 export function addBoardMember_api(member) {
@@ -37,4 +37,13 @@ export function addBoardMember_api(member) {
 export function deleteBoardMember_api(member) {
     console.log("member in api: ", member);
     //todo
+    return axios.post('', {
+        
+    })
+}
+
+export function getBoardMemberDetails_api() {
+    //make a valid board memeber details for edit biography
+    //ONLY FOR BOARD MEMBERS
+    return axios.get('http://www.mocky.io/v2/5d402caa330000911c9d2a2e')
 }

@@ -53,14 +53,13 @@ class MemberAdd extends React.Component {
         return(
             <div className="row box addMemberMargin">
                 <div className="col-md-6">
-                    <div className="">
                         <div className="box-header with-border">
                             <h3 className="box-title">Dodaj člana komore</h3>
                         </div>
                         <div className="box-body">
                             <div className="form-group">
                                 <label>Ime i prezime</label>
-                                <input type="email" className="form-control"  placeholder="Unesite ime i prezime" value={this.state.name} onChange={this.changeName} />
+                                <input type="text" className="form-control"  placeholder="Unesite ime i prezime" value={this.state.name} onChange={this.changeName} required/>
                             </div>
                             <div className="form-group">
                                 <label >Telefon</label>
@@ -79,7 +78,6 @@ class MemberAdd extends React.Component {
                         <div className="box-footer">
                             <button type="submit" className="btn btn-primary" onClick={() => this.add()}>Dodaj</button>
                         </div>
-                    </div>
                 </div>
                 <div className="col-md-6">
                     {/* IMAGE UPLOADER */}

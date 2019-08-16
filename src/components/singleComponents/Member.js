@@ -15,7 +15,6 @@ class Member extends React.Component {
 
     render() {
         return(
-
             <tr>
                 <td> {this.props.id} </td>
                 <td> {this.props.name} </td>
@@ -23,9 +22,9 @@ class Member extends React.Component {
                 <td> {this.props.city} </td>
                 <td> {this.props.company} </td>
                 <td style={{'cursor':'pointer'}}>
-                    <span className="fa fa-trash-o" title="Obriši člana" onClick={() => this.props.deleteMember(this.props.id)}></span>
-                    <span className="fa fa-user-o iconsStyle" title="Izmjeni člana" onClick={() => this.editUser(this.props.id)}></span>
-                    <span className="fa fa-address-card-o iconsStyle" title="Dodaj člana odbora" onClick={() => this.addToBoard(this.props.id)}></span>
+                    <span className="fa fa-user-o fa-md" title="Izmjeni člana" onClick={() => this.editUser(this.props.id)}></span>
+                    <span className="fa fa-address-card-o fa-md iconsStyle" title="Dodaj člana odbora" onClick={() => this.addToBoard(this.props.id)}></span>
+                    <span className="fa fa-trash-o fa-md iconsStyle" title="Obriši člana" onClick={() => this.props.deleteMember(this.props.id)}></span>
                 </td>
             </tr>
         )

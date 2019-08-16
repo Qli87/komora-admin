@@ -2,12 +2,16 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { userPath } from './constants/user.constants'
 import HomePage from './components/HomePage';
-import Contact from './components/Contact';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import MemberListCnt from './containers/MemberListCnt';
 import MemberAddCnt from './containers/MemberAddCnt';
 import MemberEditCnt from './containers/MemberEditCnt';
+import BoardMembersCnt from './containers/BoardMembersCnt';
+import BiographyCnt from './containers/BiographyCnt';
+import ContactCnt from './containers/ContactCnt';
+import ParliamentCnt from './containers/ParliamentCnt';
+import NewsCnt from './containers/NewsCnt'
 
 const routes = [
     {
@@ -17,7 +21,7 @@ const routes = [
     },
     {
         path: userPath.contact,
-        main: () => <div> <Contact /> </div>
+        main: () => <div> <ContactCnt /> </div>
     },
     {
         path: userPath.membersList,
@@ -30,6 +34,22 @@ const routes = [
     {
         path: userPath.editMember+'/:id',
         main: ({match}) => <MemberEditCnt member={match.params}/>
+    },
+    {
+        path: userPath.boardMembers,
+        main: () => <BoardMembersCnt />
+    },
+    {
+        path: userPath.biography+'/:id',
+        main: ({match}) => <BiographyCnt biography={match.params}/>
+    },
+    {
+        path: userPath.parliament,
+        main: () => <ParliamentCnt />
+    },
+    {
+        path: userPath.news,
+        main: () => <NewsCnt />
     }
 ]
 

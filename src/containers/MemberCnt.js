@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
 import Member from '../components/singleComponents/Member';
-import { addBoardMember_request } from '../actions/member.actions';
+import { addBoardMember_request } from '../actions/boardMember.action';
 
 const mapStateToProps = state => ({
     members: state.memberReducer.members,
-    boardMembers: state.memberReducer.boardMembers
+    boardMembers: state.boardMemberReducer.boardMembers
 })
 
 const mapDispatchToProps = dispatch => ({

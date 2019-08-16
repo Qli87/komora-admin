@@ -3,5 +3,9 @@ export const userPath = {
     contact: '/kontakt',
     membersList: '/spisakClanova',
     addMember: '/dodajClana',
-    editMember: '/izmjeniClana'
+    editMember: '/izmjeniClana',
+    boardMembers: '/clanoviOdbora',
+    biography: '/biografija',
+    parliament:'/clanoviSkupstine',
+    news: '/vijesti'
 }

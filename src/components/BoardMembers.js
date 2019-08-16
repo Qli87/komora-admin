@@ -1,11 +1,10 @@
 import React from 'react'
-import  { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Pagination from 'react-js-pagination'
-import MemberCnt from '../containers/MemberCnt';
-import ModalCmp from './ModalCmp';
+import BoardMemberCnt from '../containers/BoardMemberCnt';
 
-class MembersList extends React.Component {
-    constructor(props){
+class BoardMembers extends React.Component {
+    constructor(props) {
         super(props)
         this.state = {
             members: [],
@@ -19,16 +18,17 @@ class MembersList extends React.Component {
             numberOfPagButton: 5,
             totalMembers: 0,
             searchField: false,
-            temporaryFiltered: [],
-            showDeleteModal: false,
-            member: ''
+            temporaryFiltered: []
         }
     }
-
-    componentDidMount() {   
-        this.setup()
+    
+    setup = () => {
+        this.props.getBoardMembers()
     }
 
+    componentDidMount() {
+        this.setup()
+    }
 
     componentWillReceiveProps(nextProps) {
         let pagMembers = []
@@ -42,11 +42,6 @@ class MembersList extends React.Component {
             totalMembers: nextProps.members.length
         })
     }
-
-    setup = () => {
-        this.props.getMembers()
-    }
-
     onSort = (column) => (e) => {
         const direction = this.state.sort.column ? (this.state.sort.direction === 'asc' ? 'desc' : 'asc') : 'desc';
         const data = this.state.members.sort((a,b) => {
@@ -144,31 +139,13 @@ class MembersList extends React.Component {
         })
     }
 
-    deleteMemberClick = (_member) => {
-        this.setState({
-            showDeleteModal: true,
-            member: _member
-        })
-    }
-
-
-    closeModal = () => {
-        this.setState({
-            showDeleteModal: false
-        })
-    }
-
-    deleteMember = (_member) => {
-        this.props.deleteMember(_member)
-        this.closeModal()
-    }
 
     render() {
         return(
             <div className="box ">
 
                 <div className="box-header">
-                    <h3 className="box-title">Spisak članova komore</h3>
+                    <h3 className="box-title">Spisak članova odbora</h3>
                 </div>
                 <div className="col-md-6"></div>
                 <div className="col-md-6 searchAligment">
@@ -214,14 +191,13 @@ class MembersList extends React.Component {
                     <tbody>
                         {
                             this.state.data.map(member => {
-                                return <MemberCnt 
+                                return <BoardMemberCnt
                                     key={member.id}
                                     id={member.id}
                                     name={member.name}
                                     phone={member.phone}
                                     city={member.city}
                                     company={member.company}
-                                    deleteMember={() => this.deleteMemberClick(member)}
                                 />
                             })
                         }
@@ -238,27 +214,17 @@ class MembersList extends React.Component {
                     </tfoot>
                 </table>
                 </div>
-
-            <Pagination 
-                activePage={this.state.activePage}
-                itemsCountPerPage={this.state.usersPerPage}
-                totalItemsCount={this.state.totalMembers}
-                pageRangeDisplayed={this.state.numberOfPagButton}
-                onChange={this.setActivePage}
+                
+                <Pagination 
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={this.state.usersPerPage}
+                    totalItemsCount={this.state.totalMembers}
+                    pageRangeDisplayed={this.state.numberOfPagButton}
+                    onChange={this.setActivePage}
             />
-
-            <ModalCmp 
-                showModal={this.state.showDeleteModal}
-                shutDownModal={this.closeModal}
-                sureMessage="Da li ste sigurni?"
-                modalDelete={true}
-                member={this.state.member || ""}
-                deleteMember={() => this.deleteMember(this.state.member)}
-            />
-
           </div>
         )
     }
 }
 
-export default withRouter(MembersList)
+export default withRouter(BoardMembers)
