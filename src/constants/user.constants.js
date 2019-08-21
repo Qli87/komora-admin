@@ -6,6 +6,13 @@ export const userPath = {
     editMember: '/izmjeniClana',
     boardMembers: '/clanoviOdbora',
     biography: '/biografija',
-    parliament:'/clanoviSkupstine',
-    news: '/vijesti'
+    news: '/vijesti',
+    newsForCategory: '/vijestiKategorije',
+    editNovelty: '/izmijeniVijest',
+    parliamentPG:'/clanoviSkupstinePg',
+    parliamentNk:'/clanoviSkupstineNk',
+    parliamentCt:'/clanoviSkupstineCt',
+    parliamentSouth:'/clanoviSkupstineSjever',
+    parliamentNorth:'/clanoviSkupstineJug',
+
 }

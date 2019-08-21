@@ -1,8 +1,7 @@
 import { parliamentConstants } from '../constants/parliament.constants'
 
-//PG
+//PG starts
 export function getParliamentPg_request(members) {
-    console.log('object');
     return {
         type: parliamentConstants.GETPARLIAMENTPG_REQUEST,
         payload: members
@@ -20,7 +19,30 @@ export function getParliamentPg_failure(error) {
         payload: error
     }
 }
+export function editParliamentPg_request(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTPG_REQUEST,
+        payload: members
+    }
+}
 
+export function editParliamentPg_success(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTPG_SUCCESS,
+        payload: members
+    }
+}
+export function editParliamentPg_failure(error) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTPG_REQUEST,
+        payload: error
+    }
+}
+//Pg ends
+//
+
+//
+//
 //NK
 export function getParliamentNk_request(members) {
     return {
@@ -40,7 +62,32 @@ export function getParliamentNk_failure(error) {
         payload: error
     }
 }
+export function editParliamentNk_request(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTNK_REQUEST,
+        payload: members
+    }
+}
 
+export function editParliamentNk_success(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTNK_SUCCESS,
+        payload: members
+    }
+}
+export function editParliamentNk_failure(error) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTNK_FAILURE,
+        payload: error
+    }
+}
+//NK ends
+//
+//
+
+
+
+//CT
 //CT
 export function getParliamentCt_request(members) {
     return {
@@ -60,7 +107,31 @@ export function getParliamentCt_failure(error) {
         payload: error
     }
 }
+export function editParliamentCt_request(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTCT_REQUEST,
+        payload: members
+    }
+}
 
+export function editParliamentCt_success(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTCT_SUCCESS,
+        payload: members
+    }
+}
+export function editParliamentCt_failure(error) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTCT_FAILURE,
+        payload: error
+    }
+}
+//CT ends
+//CT ends
+
+
+
+//SOUTH
 //SOUTH
 export function getParliamentSouth_request(members) {
     return {
@@ -80,7 +151,32 @@ export function getParliamentSouth_failure(error) {
         payload: error
     }
 }
+export function editParliamentSouth_request(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTSOUTH_REQUEST,
+        payload: members
+    }
+}
 
+export function editParliamentSouth_success(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTSOUTH_SUCCESS,
+        payload: members
+    }
+}
+export function editParliamentSouth_failure(error) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTSOUTH_FAILURE,
+        payload: error
+    }
+}
+//SOUTH ends
+//SOUTH ends
+
+
+
+
+//NORTH
 //NORTH
 export function getParliamentNorth_request(members) {
     return {
@@ -100,3 +196,24 @@ export function getParliamentNorth_failure(error) {
         payload: error
     }
 }
+export function editParliamentNorth_request(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTNORTH_REQUEST,
+        payload: members
+    }
+}
+
+export function editParliamentNorth_success(members) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTNORTH_SUCCESS,
+        payload: members
+    }
+}
+export function editParliamentNorth_failure(error) {
+    return {
+        type: parliamentConstants.EDITPARLIAMENTNORTH_SUCCESS,
+        payload: error
+    }
+}
+//NORTH ends
+//NORTH ends

@@ -73,3 +73,21 @@
     text-align: right;
     margin-left: -10px;
 }
+
+.selectCategory {
+    width: 40%;
+    text-align: left;
+    margin-left: -5px;
+}
+
+.textAreaNews {
+    margin-top: 5px;
+    width: 100%;
+    height: 330px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.addNews {
+    margin: 10px;
+}

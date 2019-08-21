@@ -10,8 +10,14 @@ import MemberEditCnt from './containers/MemberEditCnt';
 import BoardMembersCnt from './containers/BoardMembersCnt';
 import BiographyCnt from './containers/BiographyCnt';
 import ContactCnt from './containers/ContactCnt';
-import ParliamentCnt from './containers/ParliamentCnt';
 import NewsCnt from './containers/NewsCnt'
+import NewsForCatCnt from './containers/NewsForCatCnt'
+import EditNoveltyCnt from './containers/EditNoveltyCnt';
+import PgCnt from './containers/parliament/PgCnt'
+import NkCnt from './containers/parliament/NkCnt'
+import CtCnt from './containers/parliament/CtCnt'
+import SouthCnt from './containers/parliament/SouthCnt'
+import NorthCnt from './containers/parliament/NorthCnt'
 
 const routes = [
     {
@@ -44,12 +50,36 @@ const routes = [
         main: ({match}) => <BiographyCnt biography={match.params}/>
     },
     {
-        path: userPath.parliament,
-        main: () => <ParliamentCnt />
-    },
-    {
         path: userPath.news,
         main: () => <NewsCnt />
+    },
+    {
+        path: userPath.newsForCategory+'/:id',
+        main: ({match}) => <NewsForCatCnt category={match.params}/>
+    },
+    {
+        path: userPath.editNovelty+'/:id',
+        main: ({match}) => <EditNoveltyCnt novelty={match.params} />
+    },
+    {
+        path: userPath.parliamentPG,
+        main: () => <PgCnt />
+    },
+    {
+        path: userPath.parliamentNk,
+        main: () => <NkCnt />
+    },
+    {
+        path: userPath.parliamentCt,
+        main: () => <CtCnt />
+    },
+    {
+        path: userPath.parliamentNorth,
+        main: () => <NorthCnt />
+    },
+    {
+        path: userPath.parliamentSouth,
+        main: () => <SouthCnt />
     }
 ]
 

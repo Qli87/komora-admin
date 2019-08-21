@@ -254,6 +254,7 @@ class MembersList extends React.Component {
                 modalDelete={true}
                 member={this.state.member || ""}
                 deleteMember={() => this.deleteMember(this.state.member)}
+                deleteMemberModal = {true}
             />
 
           </div>

@@ -29,7 +29,29 @@ export default function parliamentReducer(state = initialState, action) {
                 loading: false,
                 error: action.payload
             }
-        
+        case parliamentConstants.EDITPARLIAMENTPG_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case parliamentConstants.EDITPARLIAMENTPG_SUCCESS:
+            const editedMembers = state.parliamentPg.map(member => {
+                if(member.id === action.payload.id) {
+                    return Object.assign({}, member, {
+                        
+                    })
+                }
+                return member
+            })
+            return;
+        case parliamentConstants.EDITPARLIAMENTPG_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        //parliament PG ends
+
         //parliamentNK
         case parliamentConstants.GETPARLIAMENTNK_REQUEST:
             return {
@@ -47,7 +69,29 @@ export default function parliamentReducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: action.payload
-            }  
+            }
+        case parliamentConstants.EDITPARLIAMENTNK_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case parliamentConstants.EDITPARLIAMENTNK_SUCCESS:
+            // const editedMembersNk = state.parliamentPg.map(member => {
+            //     if(member.id === action.payload.id) {
+            //         return Object.assign({}, member, {
+                        
+            //         })
+            //     }
+            //     return member
+            // })
+            // return;
+        case parliamentConstants.EDITPARLIAMENTNK_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        //parliamentNK ends
 
         //parliament CT
         case parliamentConstants.GETPARLIAMENTCT_REQUEST:

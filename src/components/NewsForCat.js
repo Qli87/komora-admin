@@ -1,13 +1,12 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import Novelty from './singleComponents/Novelty';
 import Pagination from 'react-js-pagination'
-import Select from 'react-select'
+import Novelty from './singleComponents/Novelty';
 import ModalCmp from './ModalCmp';
 
-class News extends React.Component {
+class NewsForCat extends React.Component {
     constructor(props){
-        super(props)
+        super(props) 
         this.state = {
             news: '',
             data: [],
@@ -29,11 +28,10 @@ class News extends React.Component {
     }
 
     setup = () => {
-        this.props.getNews()
-        this.props.getCategories()
+        this.props.getNewsForCat()
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.setup()
     }
 
@@ -43,17 +41,10 @@ class News extends React.Component {
             pagNews = nextProps.news.slice(this.state.activePage*this.state.newsPerPage - this.state.newsPerPage,
                 this.state.activePage*this.state.newsPerPage, [])
         }
-        let categoriesForSelect = nextProps.categories.map(cat => {
-            return {
-                value: cat.id,
-                label: cat.name
-            }
-        })
         this.setState({
             news: nextProps.news,
             data: pagNews,
-            totalNews: nextProps.news.length,
-            categories: categoriesForSelect
+            totalNews: nextProps.news.length
         })
     }
 
@@ -85,7 +76,6 @@ class News extends React.Component {
             numberOfPagButton: _temporaryNumberOfPages
         })
     }
-
 
     setActivePage = (currentPage) => {
         let pagNews
@@ -155,11 +145,6 @@ class News extends React.Component {
         })
     }
 
-    changeCategory = (event) => {
-        let path =  '/vijestiKategorije/'+event.value
-        this.props.history.push(path)
-    }
-
     deleteNoveltyClick = (_novelty) => {
         this.setState({
             showDeleteNoveltyModal: true,
@@ -185,12 +170,6 @@ class News extends React.Component {
                     <h3 className="box-title">Pregled cjelokupnih vijesti:</h3>
                 </div>
                 <div className="col-md-6">
-                    <Select
-                        className="selectCategory" 
-                        placeholder="Odaberite kategoriju" 
-                        onChange={this.changeCategory}
-                        options={this.state.categories}
-                    />
                 </div>
                 <div className="col-md-6 newsSearch">
                     <form className="form-horizontal">
@@ -275,10 +254,9 @@ class News extends React.Component {
                     deleteMemberModal = {false}
                 />
 
-
             </div>
         )
     }
 }
 
-export default withRouter(News)
+export default withRouter(NewsForCat)
