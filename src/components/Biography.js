@@ -1,5 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 class Biography extends React.Component {
 
@@ -42,19 +44,30 @@ class Biography extends React.Component {
 
     render(){
         return(
-            <div className="box">
-                <div className="box-header">
-                    <h3 className="box-title">
-                        Biografija
-                    </h3>
+            <div>
+                <Header />
+                <div className="col-md-2">
+                    <Sidebar />
                 </div>
-                <div className="box-body pad">
-                    <textarea className="textarea bioArea" placeholder="Unesite biografiju" value={this.state.biography} onChange={this.changeBio}></textarea>
-                    <div className="box-footer">
-                        <button type="submit" className="btn btn-primary" onClick={ () => this.saveChanges()}>Sačuvaj</button>
+
+                <div className="col-md-10 mainContent">
+                    <div className="box">
+                        <div className="box-header">
+                            <h3 className="box-title">
+                                Biografija
+                            </h3>
+                        </div>
+                        <div className="box-body pad">  
+                            <textarea className="textarea bioArea" placeholder="Unesite biografiju" value={this.state.biography} onChange={this.changeBio}></textarea>
+                            <div className="box-footer">
+                                <button type="submit" className="btn btn-primary" onClick={ () => this.saveChanges()}>Sačuvaj</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-          </div>
+            </div>
+
+
         )
     }
 }

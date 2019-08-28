@@ -2,22 +2,25 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { userPath } from './constants/user.constants'
 import HomePage from './components/HomePage';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import MemberListCnt from './containers/MemberListCnt';
-import MemberAddCnt from './containers/MemberAddCnt';
-import MemberEditCnt from './containers/MemberEditCnt';
-import BoardMembersCnt from './containers/BoardMembersCnt';
+import MemberListCnt from './containers/members/MemberListCnt';
+import MemberAddCnt from './containers/members/MemberAddCnt';
+import MemberEditCnt from './containers/members/MemberEditCnt';
+import BoardMembersCnt from './containers/members/BoardMembersCnt';
 import BiographyCnt from './containers/BiographyCnt';
 import ContactCnt from './containers/ContactCnt';
-import NewsCnt from './containers/NewsCnt'
-import NewsForCatCnt from './containers/NewsForCatCnt'
-import EditNoveltyCnt from './containers/EditNoveltyCnt';
+import NewsCnt from './containers/news/NewsCnt'
+import NewsForCatCnt from './containers/news/NewsForCatCnt'
+import EditNoveltyCnt from './containers/news/EditNoveltyCnt';
 import PgCnt from './containers/parliament/PgCnt'
 import NkCnt from './containers/parliament/NkCnt'
 import CtCnt from './containers/parliament/CtCnt'
 import SouthCnt from './containers/parliament/SouthCnt'
 import NorthCnt from './containers/parliament/NorthCnt'
+import AddNoveltyCnt from './containers/news/AddNoveltyCnt';
+import Login from './components/Login'
+import AdvListCnt from './containers/advertisments/AdvListCnt';
+import AdvAddCnt from './containers/advertisments/AdvAddCnt';
+import AdvEditCnt from './containers/advertisments/AdvEditCnt';
 
 const routes = [
     {
@@ -62,6 +65,10 @@ const routes = [
         main: ({match}) => <EditNoveltyCnt novelty={match.params} />
     },
     {
+        path: userPath.addNovelty,
+        main: () => <AddNoveltyCnt />
+    },
+    {
         path: userPath.parliamentPG,
         main: () => <PgCnt />
     },
@@ -80,6 +87,22 @@ const routes = [
     {
         path: userPath.parliamentSouth,
         main: () => <SouthCnt />
+    },
+    {
+        path: userPath.advertisments,
+        main: () => <AdvListCnt />
+    },
+    {
+        path: userPath.advertismentAdd,
+        main: () => <AdvAddCnt />
+    },
+    {
+        path: userPath.advertismentEdit+'/:id',
+        main: ({match}) => <AdvEditCnt adv={match.params} />
+    },
+    {
+        path: userPath.login,
+        main: () => <Login />
     }
 ]
 
@@ -90,11 +113,13 @@ class PageRouting extends React.Component {
         return (
             <Router>
                 <div className="skin-blue sidebar-mini">
-                    <Header />
+
+                    {/* <Header />
                         <div className="col-md-2">
                             <Sidebar />
-                        </div>
-                        <div className="col-md-10">
+                        </div> */}
+
+                        {/* <div className="col-md-10"> */}
                         {
                             routes.map((route, index) => (
                                 <Route 
@@ -105,7 +130,7 @@ class PageRouting extends React.Component {
                                 />
                             ))
                         }
-                        </div>
+                        {/* </div> */}
                 </div>
             </Router>
             

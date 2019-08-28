@@ -1,7 +1,9 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import Pagination from 'react-js-pagination'
-import BoardMemberCnt from '../containers/BoardMemberCnt';
+import BoardMemberCnt from '../../containers/members/BoardMemberCnt';
+import Header from '../Header';
+import Sidebar from '../Sidebar';
 
 class BoardMembers extends React.Component {
     constructor(props) {
@@ -142,87 +144,102 @@ class BoardMembers extends React.Component {
 
     render() {
         return(
-            <div className="box ">
-
-                <div className="box-header">
-                    <h3 className="box-title">Spisak članova odbora</h3>
-                </div>
-                <div className="col-md-6"></div>
-                <div className="col-md-6 searchAligment">
-                    <form className="form-horizontal">
-                        <div className="form-group">
-                            <label>
-                                Pretraga: 
-                            </label>
-                            <input className="searchInput" type="text" onChange={this.search} />
-                        </div>
-                    </form>
+            <div>
+                <Header />
+                <div className="col-md-2">
+                    <Sidebar />
                 </div>
 
-                <div className="box-body">
-                <table id="example1" className="table table-bordered table-striped">
-                    <thead>
-                        <tr className="sortCursor">
-                            <th  onClick={this.onSort('id')}>
-                                <span className="fa fa-sort"></span>
-                                ID
-                            </th>
-                            <th onClick={this.onSort('name')}>
-                                <span className="fa fa-sort"></span>
-                                Ime i prezime
-                            </th>
-                            <th onClick={this.onSort('phone')}>
-                                <span className="fa fa-sort"></span>
-                                Telefon
-                            </th>
-                            <th onClick={this.onSort('city')}>
-                                <span className="fa fa-sort"></span>
-                                Grad
-                            </th>
-                            <th onClick={this.onSort('company')}>
-                                <span className="fa fa-sort"></span>
-                                Radno mjesto
-                            </th>
-                            <th>
-                                Akcije
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.data.map(member => {
-                                return <BoardMemberCnt
-                                    key={member.id}
-                                    id={member.id}
-                                    name={member.name}
-                                    phone={member.phone}
-                                    city={member.city}
-                                    company={member.company}
-                                />
-                            })
-                        }
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Ime i prezime</th>
-                            <th>Platform(s)</th>
-                            <th>Grad</th>
-                            <th>Radno mjesto</th>
-                            <th>Akcije</th>
-                        </tr>
-                    </tfoot>
-                </table>
+                <div className="col-md-10 mainContent">
+
+                <div className="col-md-12 box">
+                    <div className="box-header">
+                        <h3 className="box-title">Spisak članova odbora</h3>
+                    </div>
+                    <div className="col-md-6"></div>
+                    <div className="col-md-6 searchAligment newsSearch">
+                        <form className="form-horizontal">
+                            <div className="form-group">
+                                <label>
+                                    Pretraga: 
+                                </label>
+                                <input className="searchInput" type="text" onChange={this.search} />
+                            </div>
+                        </form>
+                    </div>
+
+                    <div className="box-body">
+                    <table id="example1" className="table table-bordered table-striped">
+                        <thead>
+                            <tr className="sortCursor">
+                                <th  onClick={this.onSort('id')}>
+                                    <span className="fa fa-sort"></span>
+                                    ID
+                                </th>
+                                <th onClick={this.onSort('name')}>
+                                    <span className="fa fa-sort"></span>
+                                    Ime i prezime
+                                </th>
+                                <th onClick={this.onSort('phone')}>
+                                    <span className="fa fa-sort"></span>
+                                    Telefon
+                                </th>
+                                <th onClick={this.onSort('city')}>
+                                    <span className="fa fa-sort"></span>
+                                    Grad
+                                </th>
+                                <th onClick={this.onSort('company')}>
+                                    <span className="fa fa-sort"></span>
+                                    Radno mjesto
+                                </th>
+                                <th>
+                                    Akcije
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.state.data.map(member => {
+                                    return <BoardMemberCnt
+                                        key={member.id}
+                                        id={member.id}
+                                        name={member.name}
+                                        phone={member.phone}
+                                        city={member.city}
+                                        company={member.company}
+                                    />
+                                })
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ime i prezime</th>
+                                <th>Platform(s)</th>
+                                <th>Grad</th>
+                                <th>Radno mjesto</th>
+                                <th>Akcije</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    </div>
+
+                    <Pagination 
+                        activePage={this.state.activePage}
+                        itemsCountPerPage={this.state.usersPerPage}
+                        totalItemsCount={this.state.totalMembers}
+                        pageRangeDisplayed={this.state.numberOfPagButton}
+                        onChange={this.setActivePage}
+                    />
+                    </div>
+
                 </div>
-                
-                <Pagination 
-                    activePage={this.state.activePage}
-                    itemsCountPerPage={this.state.usersPerPage}
-                    totalItemsCount={this.state.totalMembers}
-                    pageRangeDisplayed={this.state.numberOfPagButton}
-                    onChange={this.setActivePage}
-            />
-          </div>
+
+
+            </div>
+
+
+
         )
     }
 }

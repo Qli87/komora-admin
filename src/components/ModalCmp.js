@@ -26,9 +26,12 @@ export default class ModalCmp extends React.Component {
                         {
                             this.props.deleteMemberModal 
                             ? <p> Da li ste sigurni da želite da obrišete člana: {this.props.member.name} </p>
-                            : <p> Da li ste sigurni da želite da obrišete vijest: {this.props.novelty.title} </p>
+                            : (
+                                this.props.deleteAdvModal
+                                ? <p>Da li ste sigurni da želite da obrišete oglas broj: {this.props.adv.id}</p>
+                                : <p> Da li ste sigurni da želite da obrišete vijest: {this.props.novelty.title} </p>
+                            )
                         }
-                        
                         <div className="buttonsDivModal">
                             {
                                 this.props.deleteMemberModal 
@@ -43,17 +46,32 @@ export default class ModalCmp extends React.Component {
                                         Delete
                                     </button>
                                 </div>
-                                :
-                                <div>
-                                    <button className="btn btn-sm modalButton" onClick={this.props.shutDownModal}>
-                                        <span className="fa fa-caret-left spanButton"></span>
-                                        Back
-                                    </button>
-                                    <button className="btn btn-sm modalButton buttonRightModal" onClick={() => this.props.deleteNovelty(this.props.novelty.id)}> 
-                                        <span className="fa fa-trash-o spanButton"></span>
-                                        Delete
-                                    </button>
-                                </div>
+                                : (
+                                    this.props.deleteAdvModal
+                                    ?
+                                        <div>
+                                            <button className="btn btn-sm modalButton" onClick={this.props.shutDownModal}>
+                                                <span className="fa fa-caret-left spanButton"></span>
+                                                Back
+                                            </button>
+                                            <button className="btn btn-sm modalButton buttonRightModal" onClick={() => this.props.deleteAdv(this.props.adv.id)}> 
+                                                <span className="fa fa-trash-o spanButton"></span>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    :
+                                    <div>
+                                        <button className="btn btn-sm modalButton" onClick={this.props.shutDownModal}>
+                                            <span className="fa fa-caret-left spanButton"></span>
+                                            Back
+                                        </button>
+                                        <button className="btn btn-sm modalButton buttonRightModal" onClick={() => this.props.deleteNovelty(this.props.novelty.id)}> 
+                                            <span className="fa fa-trash-o spanButton"></span>
+                                            Delete
+                                        </button>
+                                    </div>
+                                )
+
                             }
 
                         </div>

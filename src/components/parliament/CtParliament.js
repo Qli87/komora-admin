@@ -1,5 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
+import Header from '../Header';
+import Sidebar from '../Sidebar';
 
 class CtParliament extends React.Component {
     constructor(props){
@@ -52,18 +54,28 @@ class CtParliament extends React.Component {
 
     render() {
         return(
-            <div className="row">
-                <div className="col-md-4">
-                    <h3 className="box-title">Članovi skupštine - Cetinje</h3>
-                        <div className="addMemberMargin">
-                            <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select1} options={this.state.members} onChange={this.onChange} name="1" />
+            <div>
+                <Header />
+                <div className="col-md-2">
+                    <Sidebar />
+                </div>
+
+                <div className="col-md-10 mainContent">
+                    <div className="row">
+                        <div className="col-md-4">
+                            <h3 className="box-title">Članovi skupštine - Cetinje</h3>
+                                <div className="addMemberMargin">
+                                    <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select1} options={this.state.members} onChange={this.onChange} name="1" />
+                                </div>
+                                <div className="addMemberMargin">
+                                    <button type="submit" className="btn btn-primary"
+                                    onClick={this.saveChanges}>Izmjeni</button>
+                                </div>
                         </div>
-                        <div className="addMemberMargin">
-                            <button type="submit" className="btn btn-primary"
-                            onClick={this.saveChanges}>Izmjeni</button>
-                        </div>
+                    </div>
                 </div>
             </div>
+
         )
     }
 }

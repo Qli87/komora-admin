@@ -63,7 +63,6 @@ export default function memberReducer(state = initialState, action) {
                 loading: true
             }
         case memberConstants.GETBOARDMEMBERDETAILS_SUCCESS:
-            console.log(action.payload);
             const ind = state.boardMembers.findIndex(item => item.id === action.payload)
             if(ind > -1) {
                 let _member = state.boardMembers.find(item => item.id === action.payload)

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import NewsForCat from '../components/NewsForCat';
-import { getNewsForCategory_request, deleteNews_request, deleteNews_success } from '../actions/news.actions';
+import NewsForCat from '../../components/news/NewsForCat';
+import { getNewsForCategory_request, deleteNews_request, deleteNews_success } from '../../actions/news.actions';
 
 const mapStateToProps = state => ({
     news: state.newsReducer.news

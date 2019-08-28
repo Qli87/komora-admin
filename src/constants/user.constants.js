@@ -9,10 +9,14 @@ export const userPath = {
     news: '/vijesti',
     newsForCategory: '/vijestiKategorije',
     editNovelty: '/izmijeniVijest',
+    addNovelty: '/dodajVijest',
     parliamentPG:'/clanoviSkupstinePg',
     parliamentNk:'/clanoviSkupstineNk',
     parliamentCt:'/clanoviSkupstineCt',
-    parliamentSouth:'/clanoviSkupstineSjever',
-    parliamentNorth:'/clanoviSkupstineJug',
-
+    parliamentSouth:'/clanoviSkupstineJug',
+    parliamentNorth:'/clanoviSkupstineSjever',
+    advertisments: '/oglasi',
+    advertismentAdd: '/dodajOglas',
+    advertismentEdit: '/izmjeniOglas',
+    login: '/login'
 }

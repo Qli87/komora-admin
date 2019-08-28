@@ -12,19 +12,19 @@ export function getNewsForCategory_api() {
     return axios.get('http://www.mocky.io/v2/5d42d5eb3200005b00764370')
 }
 
-export function addNews_api(newsLetter) {
+export function addNews_api(novelty) {
     return axios.post('', {
 
     })
 }
 
-export function editNews_api(newsLetter) {
+export function editNews_api(novelty) {
     return axios.post('', {
         
     })
 }
 
-export function deleteNews_api(newsLetter) {
+export function deleteNews_api(novelty) {
     return axios.post('', {
         
     })

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
-import { getMembers_request, deleteMember_success } from '../actions/member.actions';
-import { addBoardMember_success } from '../actions/boardMember.action'
-import MemberList from '../components/MemberList';
+import { getMembers_request, deleteMember_success } from '../../actions/member.actions';
+import { addBoardMember_success } from '../../actions/boardMember.action'
+import MemberList from '../../components/members/MemberList';
 
 const mapStateToProps = state => ({
     members: state.memberReducer.members

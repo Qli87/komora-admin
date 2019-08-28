@@ -1,10 +1,12 @@
 import { memberConstants } from '../constants/member.constants'
+import { loginConstants } from '../constants/login.constants';
 
 const initialState = {
     members: [],
     boardMembers: [],
     member: [],
-    boardMember: []
+    boardMember: [],
+    admin: ''
 }
 
 export default function memberReducer(state = initialState, action) {
@@ -91,6 +93,21 @@ export default function memberReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: false,
+                error: action.payload
+            }
+        case loginConstants.LOGIN_REQUEST:
+            return {
+                ...state,
+                loading: false
+            }
+        case loginConstants.LOGIN_SUCCESS:
+            return {
+                ...state,
+                admin: action.payload
+            }
+        case loginConstants.LOGIN_FAILURE:
+            return {
+                ...state,
                 error: action.payload
             }
         default:

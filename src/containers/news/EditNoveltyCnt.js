@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
-import EditNovelty from '../components/EditNovelty';
-import { editNews_request, getNoveltyDetails_request } from '../actions/news.actions';
-import { getCategory_request } from '../actions/category.action';
+import EditNovelty from '../../components/news/EditNovelty';
+import { editNews_request, getNoveltyDetails_request } from '../../actions/news.actions';
+import { getCategory_request } from '../../actions/category.action';
 
 const mapStateToProps = state => ({
     noveltyDetails: state.newsReducer.noveltyDetails,

@@ -81,7 +81,6 @@ export function getBoardMemberDetails_request(member) {
 }
 
 export function getBoardMemberDetails_success(member) {
-    console.log('action : ', member);
     return {
         type: memberConstants.GETBOARDMEMBERDETAILS_SUCCESS,
         payload: member

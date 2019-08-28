@@ -1,6 +1,8 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import Select from 'react-select'
+import Header from '../Header';
+import Sidebar from '../Sidebar';
 
 class EditNovelty extends React.Component {
     constructor(props) {
@@ -69,7 +71,6 @@ class EditNovelty extends React.Component {
     }
 
     changeCategory = (cat) => {
-        console.log(cat);
         this.setState({
             category_id: cat.value,
             category_name: cat.label
@@ -91,36 +92,46 @@ class EditNovelty extends React.Component {
 
     render() {
         return(
-            <div className="row box addMemberMargin addNews">
-                <div className="col-md-4">
-                        <div className="box-header with-border">
-                            <h3 className="box-title">Dodaj vijest</h3>
-                        </div>
-                        <div className="box-body">
-                            <div className="form-group">
-                                <label>Naslov</label>
-                                <input type="text" className="form-control" placeholder="Unesite ime i prezime" value={this.state.title} onChange={this.changeTitle} required/>
-                            </div>
-                            <div className="form-group">
-                                <label>Kategorija</label>
-                                <Select 
-                                    onChange={this.changeCategory}
-                                    value={this.state.selectedCategory}
-                                    options={this.state.categories}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label>Sadržaj</label>
-                                <input type="text" className="form-control" placeholder="Unesite broj telefona" value={this.state.content} onChange={this.changeContent} />
-                            </div>
-                        </div>
-
-                        <div className="box-footer">
-                            <button type="submit" className="btn btn-primary" onClick={() => this.edit()}>Sačuvaj</button>
-                        </div>
+            <div>
+                <Header />
+                <div className="col-md-2">
+                    <Sidebar />
                 </div>
-                <div className="col-md-8">
-                    <textarea className="textAreaNews" value={this.state.full_text} onChange={this.changeFullText} ></textarea>
+
+                <div className="col-md-10 mainContent">
+
+                    <div className="row box addMemberMargin addNews">
+                        <div className="col-md-4">
+                                <div className="box-header with-border">
+                                    <h3 className="box-title">Izmijeni vijest</h3>
+                                </div>
+                                <div className="box-body">
+                                    <div className="form-group">
+                                        <label>Naslov</label>
+                                        <input type="text" className="form-control" placeholder="Unesite ime i prezime" value={this.state.title} onChange={this.changeTitle} required/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Kategorija</label>
+                                        <Select 
+                                            onChange={this.changeCategory}
+                                            value={this.state.selectedCategory}
+                                            options={this.state.categories}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Sadržaj</label>
+                                        <input type="text" className="form-control" placeholder="Unesite broj telefona" value={this.state.content} onChange={this.changeContent} />
+                                    </div>
+                                </div>
+
+                                <div className="box-footer">
+                                    <button type="submit" className="btn btn-primary" onClick={() => this.edit()}>Sačuvaj</button>
+                                </div>
+                        </div>
+                        <div className="col-md-8">
+                            <textarea className="textAreaNews" value={this.state.full_text} onChange={this.changeFullText} ></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

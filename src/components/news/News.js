@@ -1,9 +1,11 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import Novelty from './singleComponents/Novelty';
+import Novelty from '../singleComponents/Novelty';
 import Pagination from 'react-js-pagination'
 import Select from 'react-select'
-import ModalCmp from './ModalCmp';
+import ModalCmp from '../ModalCmp';
+import Header from '../Header';
+import Sidebar from '../Sidebar';
 
 class News extends React.Component {
     constructor(props){
@@ -180,103 +182,114 @@ class News extends React.Component {
 
     render() {
         return(
-            <div className="box col-md-12">
-                <div className="box-header">
-                    <h3 className="box-title">Pregled cjelokupnih vijesti:</h3>
+            <div>
+                <Header />
+                <div className="col-md-2">
+                    <Sidebar />
                 </div>
-                <div className="col-md-6">
-                    <Select
-                        className="selectCategory" 
-                        placeholder="Odaberite kategoriju" 
-                        onChange={this.changeCategory}
-                        options={this.state.categories}
-                    />
-                </div>
-                <div className="col-md-6 newsSearch">
-                    <form className="form-horizontal">
-                        <div className="form-group">
-                            <label>
-                                Pretraga po naslovu: 
-                            </label>
-                            <input className="searchInput" type="text" onChange={this.search} />
+
+                <div className="col-md-10 mainContent">
+                    <div className="box col-md-12">
+                        <div className="box-header">
+                            <h3 className="box-title">Pregled cjelokupnih vijesti:</h3>
                         </div>
-                    </form>
+                        <div className="col-md-6">
+                            <Select
+                                className="selectCategory" 
+                                placeholder="Odaberite kategoriju" 
+                                onChange={this.changeCategory}
+                                options={this.state.categories}
+                            />
+                        </div>
+                        <div className="col-md-6 newsSearch">
+                            <form className="form-horizontal">
+                                <div className="form-group">
+                                    <label>
+                                        Pretraga po naslovu: 
+                                    </label>
+                                    <input className="searchInput" type="text" onChange={this.search} />
+                                </div>
+                            </form>
+                        </div>
+                        <div className="box-body">
+                            <table id="example1" className="table table-bordered table-striped">
+                                <thead>
+                                    <tr className="sortCursor">
+                                        <th  onClick={this.onSort('id')}>
+                                            <span className="fa fa-sort"></span>
+                                            ID
+                                        </th>
+                                        <th onClick={this.onSort('title')}>
+                                            <span className="fa fa-sort"></span>
+                                            Naslov
+                                        </th>
+                                        <th onClick={this.onSort('category')}>
+                                            <span className="fa fa-sort"></span>
+                                            Kategorija
+                                        </th>
+                                        <th onClick={this.onSort('content')}>
+                                            <span className="fa fa-sort"></span>
+                                            Sadržaj
+                                        </th>
+                                        <th onClick={this.onSort('date')}>
+                                            <span className="fa fa-sort"></span>
+                                            Datum
+                                        </th>
+                                        <th>
+                                            Akcije
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        this.state.data.map(novelty => {
+                                            return <Novelty 
+                                                key={novelty.id}
+                                                id={novelty.id}
+                                                title={novelty.title}
+                                                date={novelty.date}
+                                                category_name={novelty.category_name}
+                                                content={novelty.content}
+                                                deleteNovelty={() => this.deleteNoveltyClick(novelty)}
+                                            />
+                                        })
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Naslov</th>
+                                        <th>Sadržaj</th>
+                                        <th>Datum</th>
+                                        <th>Akcije</th>
+                                    </tr>
+                                </tfoot>
+                            </table> 
+                        </div>
+
+                        <Pagination 
+                            activePage={this.state.activePage}
+                            itemsCountPerPage={this.state.newsPerPage}
+                            totalItemsCount={this.state.totalNews}
+                            pageRangeDisplayed={this.state.numberOfPagButton}
+                            onChange={this.setActivePage}
+                        />
+
+                        <ModalCmp 
+                            showModal={this.state.showDeleteNoveltyModal}
+                            shutDownModal={this.closeModal}
+                            sureMessage="Da li ste sigurni?"
+                            novelty={this.state.novelty || ""}
+                            deleteNovelty={() => this.deleteNovelty(this.state.novelty)}
+                            deleteMemberModal = {false}
+                        />
+
+
+                    </div>
                 </div>
-                <div className="box-body">
-                    <table id="example1" className="table table-bordered table-striped">
-                        <thead>
-                            <tr className="sortCursor">
-                                <th  onClick={this.onSort('id')}>
-                                    <span className="fa fa-sort"></span>
-                                    ID
-                                </th>
-                                <th onClick={this.onSort('title')}>
-                                    <span className="fa fa-sort"></span>
-                                    Naslov
-                                </th>
-                                <th onClick={this.onSort('category')}>
-                                    <span className="fa fa-sort"></span>
-                                    Kategorija
-                                </th>
-                                <th onClick={this.onSort('content')}>
-                                    <span className="fa fa-sort"></span>
-                                    Sadržaj
-                                </th>
-                                <th onClick={this.onSort('date')}>
-                                    <span className="fa fa-sort"></span>
-                                    Datum
-                                </th>
-                                <th>
-                                    Akcije
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                this.state.data.map(novelty => {
-                                    return <Novelty 
-                                        key={novelty.id}
-                                        id={novelty.id}
-                                        title={novelty.title}
-                                        date={novelty.date}
-                                        category_name={novelty.category_name}
-                                        content={novelty.content}
-                                        deleteNovelty={() => this.deleteNoveltyClick(novelty)}
-                                    />
-                                })
-                            }
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Naslov</th>
-                                <th>Sadržaj</th>
-                                <th>Datum</th>
-                                <th>Akcije</th>
-                            </tr>
-                        </tfoot>
-                    </table> 
-                </div>
-
-                <Pagination 
-                    activePage={this.state.activePage}
-                    itemsCountPerPage={this.state.newsPerPage}
-                    totalItemsCount={this.state.totalNews}
-                    pageRangeDisplayed={this.state.numberOfPagButton}
-                    onChange={this.setActivePage}
-                />
-
-                <ModalCmp 
-                    showModal={this.state.showDeleteNoveltyModal}
-                    shutDownModal={this.closeModal}
-                    sureMessage="Da li ste sigurni?"
-                    novelty={this.state.novelty || ""}
-                    deleteNovelty={() => this.deleteNovelty(this.state.novelty)}
-                    deleteMemberModal = {false}
-                />
-
-
             </div>
+
+
         )
     }
 }

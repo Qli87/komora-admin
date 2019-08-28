@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import MemberEdit from '../components/MemberEdit';
-import { getMemberDetails_success, editMember_request } from '../actions/member.actions';
+import MemberEdit from '../../components/members/MemberEdit';
+import { getMemberDetails_success, editMember_request } from '../../actions/member.actions';
 
 const mapStateToProps = state => ({
     memberDetails: state.memberReducer.member

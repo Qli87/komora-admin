@@ -1,5 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
+import Header from '../Header';
+import Sidebar from '../Sidebar';
 
 class NkParliament extends React.Component {
     constructor(props){
@@ -100,21 +102,32 @@ class NkParliament extends React.Component {
 
     render() {
         return(
-            <div className="row">
-                <div className="col-md-4">
-                    <h3 className="box-title">Članovi skupštine - Nikšić</h3>
-                        <div className="addMemberMargin">
-                            <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select1} options={this.state.members} onChange={this.onChange} name="1" />
-                            <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select2} options={this.state.members} onChange={this.onChange} name="2" />
-                            <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select3} options={this.state.members} onChange={this.onChange} name="3" />
-                            <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select4} options={this.state.members} onChange={this.onChange}  name="4" />
-                        </div>
-                        <div className="addMemberMargin">
-                            <button type="submit" className="btn btn-primary"
-                            onClick={this.saveChanges}>Izmjeni</button>
-                        </div>
+            <div>
+                <Header />
+                <div className="col-md-2">
+                    <Sidebar />
                 </div>
+
+                <div className="col-md-10 mainContent">
+                    <div className="row">
+                        <div className="col-md-4">
+                            <h3 className="box-title">Članovi skupštine - Nikšić</h3>
+                                <div className="addMemberMargin">
+                                    <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select1} options={this.state.members} onChange={this.onChange} name="1" />
+                                    <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select2} options={this.state.members} onChange={this.onChange} name="2" />
+                                    <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select3} options={this.state.members} onChange={this.onChange} name="3" />
+                                    <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select4} options={this.state.members} onChange={this.onChange}  name="4" />
+                                </div>
+                                <div className="addMemberMargin">
+                                    <button type="submit" className="btn btn-primary"
+                                    onClick={this.saveChanges}>Izmjeni</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>   
             </div>
+
+
         )
     }
 }

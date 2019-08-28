@@ -6,6 +6,8 @@ import { biographySaga } from './biography.saga'
 import { boardMemberSaga } from './boardMember.saga'
 import { contactSaga } from './contact.saga'
 import { parliamentSaga } from './parliament.saga';
+import { loginSaga } from './login.saga';
+import { advertismentSaga } from './advertisment.saga';
 
 export default function* rootSaga() {
     yield all ([
@@ -15,6 +17,8 @@ export default function* rootSaga() {
         biographySaga(),
         boardMemberSaga(),
         contactSaga(),
-        parliamentSaga()
+        parliamentSaga(),
+        loginSaga(),
+        advertismentSaga()
     ])
 }

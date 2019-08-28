@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import BoardMembers from '../components/BoardMembers';
-import { getBoardMembers_request } from '../actions/boardMember.action';
+import BoardMembers from '../../components/members/BoardMembers';
+import { getBoardMembers_request } from '../../actions/boardMember.action';
 
 const mapStateToProps = state => ({
     members: state.boardMemberReducer.boardMembers

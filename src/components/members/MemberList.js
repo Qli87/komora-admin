@@ -1,8 +1,10 @@
 import React from 'react'
 import  { withRouter } from 'react-router-dom'
 import Pagination from 'react-js-pagination'
-import MemberCnt from '../containers/MemberCnt';
-import ModalCmp from './ModalCmp';
+import MemberCnt from '../../containers/members/MemberCnt';
+import ModalCmp from '../ModalCmp';
+import Header from '../Header';
+import Sidebar from '../Sidebar';
 
 class MembersList extends React.Component {
     constructor(props){
@@ -165,99 +167,108 @@ class MembersList extends React.Component {
 
     render() {
         return(
-            <div className="box ">
-
-                <div className="box-header">
-                    <h3 className="box-title">Spisak članova komore</h3>
+            <div>
+                <Header />
+                <div className="col-md-2">
+                    <Sidebar />
                 </div>
-                <div className="col-md-6"></div>
-                <div className="col-md-6 searchAligment">
-                    <form className="form-horizontal">
-                        <div className="form-group">
-                            <label>
-                                Pretraga: 
-                            </label>
-                            <input className="searchInput" type="text" onChange={this.search} />
+
+                <div className="col-md-10 mainContent">
+                    <div className="box">
+
+                        <div className="box-header">
+                            <h3 className="box-title">Spisak članova komore</h3>
                         </div>
-                    </form>
-                </div>
+                        <div className="col-md-6"></div>
+                        <div className="col-md-6 searchAligment">
+                            <form className="form-horizontal">
+                                <div className="form-group">
+                                    <label>
+                                        Pretraga: 
+                                    </label>
+                                    <input className="searchInput" type="text" onChange={this.search} />
+                                </div>
+                            </form>
+                        </div>
 
-                <div className="box-body">
-                <table id="example1" className="table table-bordered table-striped">
-                    <thead>
-                        <tr className="sortCursor">
-                            <th  onClick={this.onSort('id')}>
-                                <span className="fa fa-sort"></span>
-                                ID
-                            </th>
-                            <th onClick={this.onSort('name')}>
-                                <span className="fa fa-sort"></span>
-                                Ime i prezime
-                            </th>
-                            <th onClick={this.onSort('phone')}>
-                                <span className="fa fa-sort"></span>
-                                Telefon
-                            </th>
-                            <th onClick={this.onSort('city')}>
-                                <span className="fa fa-sort"></span>
-                                Grad
-                            </th>
-                            <th onClick={this.onSort('company')}>
-                                <span className="fa fa-sort"></span>
-                                Radno mjesto
-                            </th>
-                            <th>
-                                Akcije
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.data.map(member => {
-                                return <MemberCnt 
-                                    key={member.id}
-                                    id={member.id}
-                                    name={member.name}
-                                    phone={member.phone}
-                                    city={member.city}
-                                    company={member.company}
-                                    deleteMember={() => this.deleteMemberClick(member)}
-                                />
-                            })
-                        }
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Ime i prezime</th>
-                            <th>Platform(s)</th>
-                            <th>Grad</th>
-                            <th>Radno mjesto</th>
-                            <th>Akcije</th>
-                        </tr>
-                    </tfoot>
-                </table>
-                </div>
+                        <div className="box-body">
+                        <table id="example1" className="table table-bordered table-striped">
+                            <thead>
+                                <tr className="sortCursor">
+                                    <th  onClick={this.onSort('id')}>
+                                        <span className="fa fa-sort"></span>
+                                        ID
+                                    </th>
+                                    <th onClick={this.onSort('name')}>
+                                        <span className="fa fa-sort"></span>
+                                        Ime i prezime
+                                    </th>
+                                    <th onClick={this.onSort('phone')}>
+                                        <span className="fa fa-sort"></span>
+                                        Telefon
+                                    </th>
+                                    <th onClick={this.onSort('city')}>
+                                        <span className="fa fa-sort"></span>
+                                        Grad
+                                    </th>
+                                    <th onClick={this.onSort('company')}>
+                                        <span className="fa fa-sort"></span>
+                                        Radno mjesto
+                                    </th>
+                                    <th>
+                                        Akcije
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.data.map(member => {
+                                        return <MemberCnt 
+                                            key={member.id}
+                                            id={member.id}
+                                            name={member.name}
+                                            phone={member.phone}
+                                            city={member.city}
+                                            company={member.company}
+                                            deleteMember={() => this.deleteMemberClick(member)}
+                                        />
+                                    })
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Ime i prezime</th>
+                                    <th>Platform(s)</th>
+                                    <th>Grad</th>
+                                    <th>Radno mjesto</th>
+                                    <th>Akcije</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        </div>
 
-            <Pagination 
-                activePage={this.state.activePage}
-                itemsCountPerPage={this.state.usersPerPage}
-                totalItemsCount={this.state.totalMembers}
-                pageRangeDisplayed={this.state.numberOfPagButton}
-                onChange={this.setActivePage}
-            />
+                        <Pagination 
+                        activePage={this.state.activePage}
+                        itemsCountPerPage={this.state.usersPerPage}
+                        totalItemsCount={this.state.totalMembers}
+                        pageRangeDisplayed={this.state.numberOfPagButton}
+                        onChange={this.setActivePage}
+                        />
 
-            <ModalCmp 
-                showModal={this.state.showDeleteModal}
-                shutDownModal={this.closeModal}
-                sureMessage="Da li ste sigurni?"
-                modalDelete={true}
-                member={this.state.member || ""}
-                deleteMember={() => this.deleteMember(this.state.member)}
-                deleteMemberModal = {true}
-            />
+                        <ModalCmp 
+                        showModal={this.state.showDeleteModal}
+                        shutDownModal={this.closeModal}
+                        sureMessage="Da li ste sigurni?"
+                        modalDelete={true}
+                        member={this.state.member || ""}
+                        deleteMember={() => this.deleteMember(this.state.member)}
+                        deleteMemberModal = {true}
+                        />
 
-          </div>
+                        </div>
+                    </div>
+            </div>
         )
     }
 }
