@@ -26,27 +26,29 @@ export default class Sidebar extends React.Component {
                     </div>
                 </form>
                     <ul className="sidebar-menu" data-widget="tree">
-                        <li className="header">Navigacija</li>
                         <li className="active treeview">
                             <a href="#1">
                                 <i className="fa fa-user-o"></i> <span>Članovi komore</span>
                                 <span className="pull-right-container">
-                                <i className="fa fa-angle-left pull-right"></i>
+                                    <i className="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul className="treeview-menu">
-                                <li className="active"><a href="index.html"><i className="fa fa-circle-o"></i> Spisak članova</a></li>
-                                <li><a href="index2.html"><i className="fa fa-circle-o"></i> Dodaj člana</a></li>
+                                <li className="active"><a href="spisakClanova"><i className="fa fa-circle-o"></i> Spisak članova</a></li>
+                                <li><a href="dodajClana"><i className="fa fa-circle-o"></i> Dodaj člana</a></li>
                             </ul>
                         </li>
 
                         <li className="active treeview">
-                            <a href="#1">
-                                <i className="fa fa-user"></i> <span>Članovi izvršnog odbora</span>
-                                <span className="pull-right-container">
+                            <a href="clanoviOdbora">
+                                <i className="fa fa-user"></i><span>Članovi izvršnog odbora</span>
+                                    <span className="pull-right-container">
                                 <i className="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
+                            <ul className="treeview-menu">
+                                <li className="active"><a href="clanoviOdbora"><i className="fa fa-circle-o"></i> Spisak članova</a></li>
+                            </ul>
                         </li>
 
                         <li className="active treeview">
@@ -58,10 +60,10 @@ export default class Sidebar extends React.Component {
                             </a>
                             <ul className="treeview-menu">
                                 <li className="active"><a href="index.html"><i className="fa fa-circle-o"></i> Podgorica</a></li>
-                                <li><a href="index2.html"><i className="fa fa-circle-o"></i> Cetinje</a></li>
-                                <li><a href="index2.html"><i className="fa fa-circle-o"></i> Nikšić</a></li>
-                                <li><a href="index2.html"><i className="fa fa-circle-o"></i> Sjever</a></li>
-                                <li><a href="index2.html"><i className="fa fa-circle-o"></i> Jug</a></li>
+                                <li><a href="clanoviSkupstineCt"><i className="fa fa-circle-o"></i> Cetinje</a></li>
+                                <li><a href="clanoviSkupstineNk"><i className="fa fa-circle-o"></i> Nikšić</a></li>
+                                <li><a href="clanoviSkupstineSjever"><i className="fa fa-circle-o"></i> Sjever</a></li>
+                                <li><a href="clanoviSkupstineJug"><i className="fa fa-circle-o"></i> Jug</a></li>
                             </ul>
                         </li>
 
@@ -73,12 +75,10 @@ export default class Sidebar extends React.Component {
                                 </span>
                             </a>
                             <ul className="treeview-menu">
-                                <li className="active"><a href="index.html"><i className="fa fa-circle-o"></i> Pregled vijesti</a></li>
-                                <li><a href="index2.html"><i className="fa fa-circle-o"></i> Dodaj vijest</a></li>
+                                <li className="active"><a href="vijesti"><i className="fa fa-circle-o"></i> Pregled vijesti</a></li>
+                                <li><a href="dodajVijest"><i className="fa fa-circle-o"></i> Dodaj vijest</a></li>
                             </ul>
                         </li>
-
-
                         <li className="active treeview">
                             <a href="#1">
                                 <i className="fa fa-user-circle"></i> <span>Oglasi</span>
@@ -87,8 +87,19 @@ export default class Sidebar extends React.Component {
                                 </span>
                             </a>
                             <ul className="treeview-menu">
-                                <li className="active"><a href="index.html"><i className="fa fa-circle-o"></i> Pregled oglasa</a></li>
-                                <li><a href="index2.html"><i className="fa fa-circle-o"></i> Dodaj oglas</a></li>
+                                <li className="active"><a href="oglasi"><i className="fa fa-circle-o"></i> Pregled oglasa</a></li>
+                                <li><a href="dodajOglas"><i className="fa fa-circle-o"></i> Dodaj oglas</a></li>
+                            </ul>
+                        </li>
+                        <li className="active treeview">
+                            <a href="#1">
+                                <i className="fa fa-user-circle"></i> <span>Kontakt</span>
+                                <span className="pull-right-container">
+                                <i className="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul className="treeview-menu">
+                                <li className="active"><a href="kontakt"><i className="fa fa-circle-o"></i> Podaci o firmi</a></li>
                             </ul>
                         </li>
                     </ul>

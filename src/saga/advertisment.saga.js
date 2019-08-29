@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
-import { getAdvertisments_api, addAdvertisment_api, deleteAdv_api, editAdv_api } from '../api/advertisment.api';
+import { getAdvertisments_api, addAdvertisment_api, deleteAdv_api, editAdv_api, getAdvDetails_api } from '../api/advertisment.api';
 import { advertismentConstants } from '../constants/advertisment.constants';
-import { getAdv_failure, getAdv_success, addAdv_failure, addAdv_success, deleteAdv_failure, deleteAdv_success, editAdv_failure, editAdv_success } from '../actions/adv.action';
+import { getAdv_failure, getAdv_success, addAdv_failure, addAdv_success, deleteAdv_failure, deleteAdv_success, editAdv_failure, editAdv_success, getAdvDetails_failure, getAdvDetails_success } from '../actions/adv.action';
 
 
 export function* getAdvertisments() {
@@ -52,10 +52,23 @@ export function* editAdvertisment(adv) {
     }
 }
 
+export function* getAdvertismentDetails() {
+    const response = yield call(getAdvDetails_api)
+    if(!response || !response.data) {
+        return yield put(getAdvDetails_failure('Internal server error for advetisment details'))
+    }
+    if(response.status === 200) {
+        return yield put(getAdvDetails_success(response.data))
+    } else {
+        return yield put(getAdvDetails_failure('Error for advetisment details'))
+    }
+}
+
 export function* advertismentSaga() {
     yield takeEvery(advertismentConstants.GETADV_REQUEST, getAdvertisments)
     yield takeEvery(advertismentConstants.ADDADV_REQUEST, addAdvertisment)
     yield takeEvery(advertismentConstants.DELETEADV_REQUEST, deleteAdvertisment)
     yield takeEvery(advertismentConstants.EDITADV_REQUEST, editAdvertisment)
+    yield takeEvery(advertismentConstants.GETADVDETAILS_REQUEST, getAdvertismentDetails)
 }
 

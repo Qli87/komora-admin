@@ -45,46 +45,33 @@ class AdvAdd extends React.Component {
                 </div>
 
                 <div className="col-md-10 mainContent">
-                    <div className="col-md-4 row box">
+                    <div className="col-md-4 box">
                         <div className="box-header with-border">
                             <h3 className="box-title">Dodaj oglas</h3>
                         </div>
-
                         <div className="box-body">
-                            <div className="form-group">
-                                <label>Naslov</label>
-                                <input type="text" className="form-control" placeholder="Unesite naslov oglasa" value={this.state.title} onChange={this.changeTitle} required/>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <label>Naslov</label>
+                                        <input type="text" className="form-control" placeholder="Unesite naslov oglasa" value={this.state.title || ""} onChange={this.changeTitle} required/>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <label>Telefon</label>
+                                        <input type="text" className="form-control" placeholder="Unesite broj telefona" value={this.state.phone || ""} onChange={this.changePhone} required/>
+                                    </div>
+                                </div>
                             </div>
                             <div className="form-group">
-                                <textarea className="textAreaNews" value={this.state.text} onChange={this.changeText} ></textarea>
+                                <textarea className="textAreaNews" value={this.state.text || ""} onChange={this.changeText} ></textarea>
                             </div>
-
                         </div>
                         <div className="box-footer">
                             <button type="submit" className="btn btn-primary" onClick={() => this.addAdv()}>Sačuvaj</button>
                         </div>
-
                     </div>
-                    {/* <div className="row box addMemberMargin addNews">
-                        <div className="col-md-4">
-                                <div className="box-header with-border">
-                                    <h3 className="box-title">Dodaj oglas</h3>
-                                </div>
-                                <div className="box-body">
-                                    <div className="form-group">
-                                        <label>Naslov</label>
-                                        <input type="text" className="form-control" placeholder="Unesite naslov oglasa" value={this.state.title} onChange={this.changeTitle} required/>
-                                    </div>
-                                </div>
-
-                                <div className="box-footer">
-                                    <button type="submit" className="btn btn-primary" onClick={() => this.add()}>Sačuvaj</button>
-                                </div>
-                        </div>
-                        <div className="col-md-8">
-                            <textarea className="textAreaNews" value={this.state.full_text} onChange={this.changeFullText} ></textarea>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         )

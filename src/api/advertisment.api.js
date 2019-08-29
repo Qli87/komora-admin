@@ -21,3 +21,8 @@ export function editAdv_api(adv) {
         
     })
 }
+
+//adv
+export function getAdvDetails_api() {
+    return axios.get('http://www.mocky.io/v2/5d678d483300008500e657df')
+}

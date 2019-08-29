@@ -7,6 +7,7 @@ const initialState = {
 
 export default function advReducer(state = initialState, action) {
     switch(action.type) {
+        //get all advertisments
         case advertismentConstants.GETADV_REQUEST:
             return {
                 ...state,
@@ -24,6 +25,8 @@ export default function advReducer(state = initialState, action) {
                 loading: false,
                 error: action.payload
             }
+        //get all advertisments end
+
 
         //add advertisment
         case advertismentConstants.ADDADV_REQUEST:
@@ -52,7 +55,6 @@ export default function advReducer(state = initialState, action) {
                 loading: true
             }
         case advertismentConstants.DELETEADV_SUCCESS:
-            console.log('reducer: ',action.payload);
             return {
                 ...state,
                 loading: false,
@@ -64,6 +66,26 @@ export default function advReducer(state = initialState, action) {
                 loading: false,
                 error: action.payload
             }
+
+        //get adv details
+        case advertismentConstants.GETADVDETAILS_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case advertismentConstants.GETADVDETAILS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                advDetails: action.payload
+            }
+        case advertismentConstants.GETADVDETAILS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        //get adv details end
         default:
             return state
     }

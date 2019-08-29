@@ -104,6 +104,8 @@ class AdvList extends React.Component {
                 return 0
             } else if (column === 'id') {
                 return b.id - a.id
+            } else if (column ==='date') {
+                return b.date - a.date
             }
         }) 
         if(direction === 'asc') {
@@ -176,7 +178,7 @@ class AdvList extends React.Component {
                                             <span className="fa fa-sort"></span>
                                             Naslov
                                         </th>
-                                        <th onClick={this.onSort('text')}>
+                                        <th onClick={this.onSort()}>
                                             <span className="fa fa-sort"></span>
                                             Tekst
                                         </th>
