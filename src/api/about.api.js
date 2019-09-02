@@ -1,0 +1,11 @@
+import axios from 'axios'
+
+export function about_api() {
+    return axios.get('http://www.mocky.io/v2/5d6cb56e3000005f008fb7e0')
+}
+
+export function editAbout_api(content) {
+    return axios.post('', {
+        
+    })
+}

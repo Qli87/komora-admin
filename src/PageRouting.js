@@ -21,6 +21,7 @@ import Login from './components/Login'
 import AdvListCnt from './containers/advertisments/AdvListCnt';
 import AdvAddCnt from './containers/advertisments/AdvAddCnt';
 import AdvEditCnt from './containers/advertisments/AdvEditCnt';
+import AboutCnt from './containers/AboutCnt';
 
 const routes = [
     {
@@ -99,6 +100,10 @@ const routes = [
     {
         path: userPath.advertismentEdit+'/:id',
         main: ({match}) => <AdvEditCnt adv={match.params} />
+    },
+    {
+        path: userPath.about,
+        main: () => <AboutCnt />
     },
     {
         path: userPath.login,

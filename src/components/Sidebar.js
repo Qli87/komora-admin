@@ -28,6 +28,17 @@ export default class Sidebar extends React.Component {
                     <ul className="sidebar-menu" data-widget="tree">
                         <li className="active treeview">
                             <a href="#1">
+                                <i className="fa fa-user-circle"></i> <span>O nama</span>
+                                <span className="pull-right-container">
+                                <i className="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul className="treeview-menu">
+                                <li className="active"><a href="onama"><i className="fa fa-circle-o"></i> Podaci o stranici</a></li>
+                            </ul>
+                        </li>
+                        <li className="active treeview">
+                            <a href="#1">
                                 <i className="fa fa-user-o"></i> <span>Članovi komore</span>
                                 <span className="pull-right-container">
                                     <i className="fa fa-angle-left pull-right"></i>
@@ -66,7 +77,6 @@ export default class Sidebar extends React.Component {
                                 <li><a href="clanoviSkupstineJug"><i className="fa fa-circle-o"></i> Jug</a></li>
                             </ul>
                         </li>
-
                         <li className="active treeview">
                             <a href="#1">
                                 <i className="fa fa-user-circle"></i> <span>Vijesti</span>

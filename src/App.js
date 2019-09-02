@@ -29,6 +29,7 @@ class App extends React.Component {
             <PrivateRoute path='/oglasi' component={PageRouting} />
             <PrivateRoute path='/dodajOglas' component={PageRouting} />
             <PrivateRoute path='/izmjeniOglas' component={PageRouting} />
+            <PrivateRoute path='/onama' component={PageRouting} />
             <Route path="/" component={Page404}></Route>
           </Switch>
       </Router>

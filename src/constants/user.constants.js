@@ -18,5 +18,6 @@ export const userPath = {
     advertisments: '/oglasi',
     advertismentAdd: '/dodajOglas',
     advertismentEdit: '/izmjeniOglas',
+    about: '/onama',
     login: '/login'
 }

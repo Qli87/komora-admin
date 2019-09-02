@@ -8,6 +8,7 @@ import { contactSaga } from './contact.saga'
 import { parliamentSaga } from './parliament.saga';
 import { loginSaga } from './login.saga';
 import { advertismentSaga } from './advertisment.saga';
+import { aboutSaga } from './about.saga';
 
 export default function* rootSaga() {
     yield all ([
@@ -19,6 +20,7 @@ export default function* rootSaga() {
         contactSaga(),
         parliamentSaga(),
         loginSaga(),
-        advertismentSaga()
+        advertismentSaga(),
+        aboutSaga()
     ])
 }

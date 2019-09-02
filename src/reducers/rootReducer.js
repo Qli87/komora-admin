@@ -7,6 +7,7 @@ import boardMemberReducer from './boardMemberReducer'
 import contactReducer from './contactReducer'
 import parliamentReducer from './parliamentReducer'
 import advReducer from './advReducer'
+import aboutReducer from './aboutReducer'
 
 export default combineReducers({
     memberReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
     boardMemberReducer,
     contactReducer,
     parliamentReducer,
-    advReducer
+    advReducer,
+    aboutReducer
 })

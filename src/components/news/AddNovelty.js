@@ -14,7 +14,12 @@ class AddNovelty extends React.Component {
             category_name: '',
             content: '',
             full_text: '',
-            categories: []
+            categories: [],
+            errorName: '',
+            errorCity: '',
+            errorCompany: '',
+            errorPhone: '',
+            defaultCategory: ''
         }
     }
 
@@ -30,7 +35,10 @@ class AddNovelty extends React.Component {
             }
         })
         this.setState({
-            categories: categoriesForSelect
+            categories: categoriesForSelect,
+            defaultCategory: categoriesForSelect[0],
+            category_id: categoriesForSelect[0].value,
+            category_name: categoriesForSelect[0].label
         })
     }
 
@@ -59,7 +67,8 @@ class AddNovelty extends React.Component {
         })
     }
 
-    add = () => {
+    submitForm = (e) => {
+        e.preventDefault()
         const details = {
             category_id: this.state.category_id,
             category_name: this.state.category_name,
@@ -83,7 +92,8 @@ class AddNovelty extends React.Component {
 
                 <div className="col-md-10 mainContent">
                     <div className="row box addMemberMargin addNews">
-                        <div className="col-md-4">
+                        <form name="addForm" onSubmit={this.submitForm}>
+                            <div className="col-md-4">
                                 <div className="box-header with-border">
                                     <h3 className="box-title">Dodaj vijest</h3>
                                 </div>
@@ -96,23 +106,24 @@ class AddNovelty extends React.Component {
                                         <label>Kategorija</label>
                                         <Select 
                                             onChange={this.changeCategory}
-                                            value={this.state.selectedCategory}
+                                            value={this.state.defaultCategory}
                                             options={this.state.categories}
                                         />
                                     </div>
                                     <div className="form-group">
                                         <label>Sadržaj</label>
-                                        <input type="text" className="form-control" placeholder="Unesite broj telefona" value={this.state.content} onChange={this.changeContent} />
+                                        <input type="text" className="form-control" placeholder="Unesite broj telefona" value={this.state.content} onChange={this.changeContent} required/>
                                     </div>
                                 </div>
 
                                 <div className="box-footer">
-                                    <button type="submit" className="btn btn-primary" onClick={() => this.add()}>Sačuvaj</button>
+                                    <button type="submit" className="btn btn-primary">Sačuvaj</button>
                                 </div>
-                        </div>
-                        <div className="col-md-8">
-                            <textarea className="textAreaNews" value={this.state.full_text} onChange={this.changeFullText} ></textarea>
-                        </div>
+                            </div>
+                            <div className="col-md-8">
+                                <textarea className="textAreaNews" value={this.state.full_text} onChange={this.changeFullText} ></textarea>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
