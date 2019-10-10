@@ -16,8 +16,8 @@ export function* getContent() {
     }
 }
 
-export function* editContent(content) {
-    const response = yield call(editAbout_api(content))
+export function* editContent(action) {
+    const response = yield call(editAbout_api, action.payload)
     if(!response || !response.data) {
         return yield put(getAboutContent_failure('Internal server error for geting about content'))
     }

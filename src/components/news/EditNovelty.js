@@ -16,7 +16,7 @@ class EditNovelty extends React.Component {
             posted_by: '',
             title: '',
             categories: '',
-            selectedCategory: ''
+            selectedCategory: ""
         }
     }
 
@@ -37,19 +37,17 @@ class EditNovelty extends React.Component {
             }
         })
         let _selectedCategory = categoriesForSelect.find(item => item.value === parseInt(this.props.novelty.id))
-        if(nextProps.noveltyDetails.length > 0) {
-            this.setState({
-                category_id: nextProps.noveltyDetails[0].category_id,
-                category_name: nextProps.noveltyDetails[0].category_name,
-                content: nextProps.noveltyDetails[0].content,
-                date: nextProps.noveltyDetails[0].date,
-                full_text: nextProps.noveltyDetails[0].full_text,
-                posted_by: nextProps.noveltyDetails[0].posted_by,
-                title: nextProps.noveltyDetails[0].title,
-                categories: categoriesForSelect,
-                selectedCategory: _selectedCategory
-            })
-        }
+        this.setState({
+            category_id: nextProps.noveltyDetails.category_id,
+            category_name: nextProps.noveltyDetails.category_name,
+            content: nextProps.noveltyDetails.content,
+            date: nextProps.noveltyDetails.date,
+            full_text: nextProps.noveltyDetails.full_text,
+            posted_by: nextProps.noveltyDetails.posted_by,
+            title: nextProps.noveltyDetails.title,
+            categories: categoriesForSelect,
+            selectedCategory: _selectedCategory
+        })
     }
 
     changeTitle = (input) => {
@@ -71,9 +69,11 @@ class EditNovelty extends React.Component {
     }
 
     changeCategory = (cat) => {
+        console.log('on change: ',cat);
         this.setState({
-            category_id: cat.value,
-            category_name: cat.label
+            // category_id: cat.value,
+            // category_name: cat.label
+            selectedCategory: cat
         })
     }
 
@@ -108,19 +108,19 @@ class EditNovelty extends React.Component {
                                 <div className="box-body">
                                     <div className="form-group">
                                         <label>Naslov</label>
-                                        <input type="text" className="form-control" placeholder="Unesite ime i prezime" value={this.state.title} onChange={this.changeTitle} required/>
+                                        <input type="text" className="form-control" placeholder="Unesite ime i prezime" value={this.state.title || ""} onChange={this.changeTitle} required/>
                                     </div>
                                     <div className="form-group">
                                         <label>Kategorija</label>
                                         <Select 
                                             onChange={this.changeCategory}
-                                            value={this.state.selectedCategory}
+                                            value={this.state.selectedCategory || ""} 
                                             options={this.state.categories}
                                         />
                                     </div>
                                     <div className="form-group">
                                         <label>Sadržaj</label>
-                                        <input type="text" className="form-control" placeholder="Unesite broj telefona" value={this.state.content} onChange={this.changeContent} />
+                                        <input type="text" className="form-control" placeholder="Unesite broj telefona" value={this.state.content || ""} onChange={this.changeContent} />
                                     </div>
                                 </div>
 
@@ -129,7 +129,7 @@ class EditNovelty extends React.Component {
                                 </div>
                         </div>
                         <div className="col-md-8">
-                            <textarea className="textAreaNews" value={this.state.full_text} onChange={this.changeFullText} ></textarea>
+                            <textarea className="textAreaNews" value={this.state.full_text} onChange={this.changeFullText || ""} ></textarea>
                         </div>
                     </div>
                 </div>

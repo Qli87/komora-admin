@@ -17,7 +17,7 @@ class MembersList extends React.Component {
                 direction: 'desc'
             },
             activePage: 1,
-            usersPerPage: 10,
+            usersPerPage: 15,
             numberOfPagButton: 5,
             totalMembers: 0,
             searchField: false,

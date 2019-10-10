@@ -93,7 +93,6 @@ export function getMemberDetails_request(member) {
 }
 
 export function getMemberDetails_success(member) {
-    console.log('action : ', member);
     return {
         type: memberConstants.GETMEMBERDETAILS_SUCCESS,
         payload: member

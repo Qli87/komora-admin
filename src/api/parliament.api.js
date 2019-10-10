@@ -1,25 +1,20 @@
 import axios from 'axios'
 
-//PG
-//PG
-//PG
 //PG starts
 export function getMembersPg_api () {
-    return axios.get('http://www.mocky.io/v2/5d4171603100004d005393cd')
+    return axios.get('http://api.zk.test/parliamentPg')
 }
 export function editMembersPg_api(members) {
-    return axios.post('', {
+    return axios.put('', {
 
     })
 }
 //PG ends
-//
-//
+
 
 //Nk starts
-//Nk starts
 export function getMembersNk_api () {
-    return axios.get('http://www.mocky.io/v2/5d41741d3100007e005393ee')
+    return axios.get('http://api.zk.test/parliamentNk')
 }
 export function editMembersNk_api(members) {
     return axios.post('', {
@@ -27,27 +22,23 @@ export function editMembersNk_api(members) {
     })
 }
 //Nk ends
-//Nk ends
 
 
-//Ct starts
 //Ct starts
 export function getMembersCt_api () {
-    return axios.get('http://www.mocky.io/v2/5d417f83310000570053944c')
+    return axios.get('http://api.zk.test/parliamentCt')
 }
-
 export function editMembersCt_api(members) {
     return axios.post('', {
         
     })
 }
 //Ct ends
-//Ct ends
 
 
 //South starts
 export function getMembersSouth_api () {
-    return axios.get('http://www.mocky.io/v2/5d417950310000530053941a')
+    return axios.get('http://api.zk.test/parliamentSouth')
 }
 export function editMembersSouth_api(members) {
     return axios.post('', {
@@ -59,7 +50,7 @@ export function editMembersSouth_api(members) {
 
 //North starts
 export function getMembersNorth_api () {
-    return axios.get('http://www.mocky.io/v2/5d417c333100007bc253942d')
+    return axios.get('http://api.zk.test/parliamentNorth')
 }
 export function editMembersNorth_api(members) {
     return axios.post('', {

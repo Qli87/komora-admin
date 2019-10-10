@@ -28,6 +28,17 @@ export default class Sidebar extends React.Component {
                     <ul className="sidebar-menu" data-widget="tree">
                         <li className="active treeview">
                             <a href="#1">
+                                <i className="fa fa-dashboard"></i> <span>Početna</span>
+                                <span className="pull-right-container">
+                                <i className="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul className="treeview-menu">
+                                <li className="active"><a href="pocetna"><i className="fa fa-circle-o"></i> Podaci o stranici</a></li>
+                            </ul>
+                        </li>
+                        <li className="active treeview">
+                            <a href="#1">
                                 <i className="fa fa-user-circle"></i> <span>O nama</span>
                                 <span className="pull-right-container">
                                 <i className="fa fa-angle-left pull-right"></i>
@@ -70,7 +81,7 @@ export default class Sidebar extends React.Component {
                                 </span>
                             </a>
                             <ul className="treeview-menu">
-                                <li className="active"><a href="index.html"><i className="fa fa-circle-o"></i> Podgorica</a></li>
+                                <li className="active"><a href="clanoviSkupstinePg"><i className="fa fa-circle-o"></i> Podgorica</a></li>
                                 <li><a href="clanoviSkupstineCt"><i className="fa fa-circle-o"></i> Cetinje</a></li>
                                 <li><a href="clanoviSkupstineNk"><i className="fa fa-circle-o"></i> Nikšić</a></li>
                                 <li><a href="clanoviSkupstineSjever"><i className="fa fa-circle-o"></i> Sjever</a></li>

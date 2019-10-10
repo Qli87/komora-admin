@@ -14,17 +14,15 @@ class AdvEdit extends React.Component {
     }
 
     componentDidMount() {
-        console.log('did mount');
         this.props.getAdvDetails(parseInt(this.props.adv.id))
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
         this.setState({
-            id: nextProps.advDetails[0].id,
-            title: nextProps.advDetails[0].title,
-            full_text: nextProps.advDetails[0].full_text,
-            phone: nextProps.advDetails[0].phone
+            id: nextProps.advDetails.id,
+            title: nextProps.advDetails.title,
+            full_text: nextProps.advDetails.full_text,
+            phone: nextProps.advDetails.phone
         })
     }
 

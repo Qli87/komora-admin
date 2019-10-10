@@ -16,8 +16,8 @@ export function* getNews() {
     }
 }
 
-export function* getNoveltyDetails() {
-    const response = yield call(getNoveltyDetails_api)
+export function* getNoveltyDetails(action) {
+    const response = yield call(getNoveltyDetails_api, action.payload)
     if(!response || !response.data) {
         return yield put(getNoveltyDetails_failure('Internal server error for get novelty details'))
     }
@@ -28,8 +28,8 @@ export function* getNoveltyDetails() {
     }
 }
 
-export function* getNewsForCateogry() {
-    const response = yield call(getNewsForCategory_api)
+export function* getNewsForCateogry(action) {
+    const response = yield call(getNewsForCategory_api, action.payload)
     if(!response || !response.data) {
         return yield put(getNewsForCategory_failure('Internal server error for get novelty details'))
     }

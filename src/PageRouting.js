@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { userPath } from './constants/user.constants'
-import HomePage from './components/HomePage';
 import MemberListCnt from './containers/members/MemberListCnt';
 import MemberAddCnt from './containers/members/MemberAddCnt';
 import MemberEditCnt from './containers/members/MemberEditCnt';
@@ -22,12 +21,13 @@ import AdvListCnt from './containers/advertisments/AdvListCnt';
 import AdvAddCnt from './containers/advertisments/AdvAddCnt';
 import AdvEditCnt from './containers/advertisments/AdvEditCnt';
 import AboutCnt from './containers/AboutCnt';
+import HomePageCnt from './containers/HomePageCnt';
 
 const routes = [
     {
         path: userPath.homePage,
         exact: true,
-        main: () => <div> <HomePage /> </div>
+        main: () => <div> <HomePageCnt /> </div>
     },
     {
         path: userPath.contact,

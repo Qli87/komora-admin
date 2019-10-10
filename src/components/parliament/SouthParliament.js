@@ -144,8 +144,8 @@ class SouthParliament extends React.Component {
                                 <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select6} options={this.state.members} onChange={this.onChange} name="6" />
                                 <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select7} options={this.state.members} onChange={this.onChange} name="7" />
                                 <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select8} options={this.state.members} onChange={this.onChange} name="8" />
-                                <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select9} options={this.state.members} onChange={this.onChange} name="9" />
-                                <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select10} options={this.state.members} onChange={this.onChange} name="10" />
+                                {/* <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select9} options={this.state.members} onChange={this.onChange} name="9" />
+                                <Select className="selectStyle" placeholder="Odaberite ime" value={this.state.select10} options={this.state.members} onChange={this.onChange} name="10" /> */}
                             </div>
                             <div className="addMemberMargin">
                                 <button type="submit" className="btn btn-primary"

@@ -16,7 +16,7 @@ export function* getMembers() {
 }
 
 export function* addMember(member) {
-    const response = yield call(addMember_api(member))
+    const response = yield call(addMember_api, member)
     if(!response || !response.data) {
         return yield put(addMembar_failure('Internal server error for add member'))
     }

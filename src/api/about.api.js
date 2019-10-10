@@ -1,11 +1,16 @@
 import axios from 'axios'
 
 export function about_api() {
-    return axios.get('http://www.mocky.io/v2/5d6cb56e3000005f008fb7e0')
+    return axios.get('http://api.zk.test/about')
 }
 
+
 export function editAbout_api(content) {
-    return axios.post('', {
-        
+    return axios.put('http://api.zk.test/about/update?'+content.aboutTitle+"?"+content.aboutContent+"?"+content.parliamentContent, {
+        params: {
+            aboutTitle: content.payload.aboutTitle,
+            aboutContent: content.payload.aboutContent,
+            parliamentContent: content.payload.parliamentContent
+        }
     })
 }

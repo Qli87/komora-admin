@@ -52,8 +52,8 @@ export function* editAdvertisment(adv) {
     }
 }
 
-export function* getAdvertismentDetails() {
-    const response = yield call(getAdvDetails_api)
+export function* getAdvertismentDetails(action) {
+    const response = yield call(getAdvDetails_api, action.payload)
     if(!response || !response.data) {
         return yield put(getAdvDetails_failure('Internal server error for advetisment details'))
     }

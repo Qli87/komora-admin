@@ -7,6 +7,7 @@ class About extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            id: '',
             aboutTitle: '',
             aboutContent: '',
             parliamentContent: ''
@@ -18,8 +19,8 @@ class About extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
         this.setState({
+            id: nextProps.content[0].id,
             aboutTitle: nextProps.content[0].aboutTitle,
             aboutContent: nextProps.content[0].aboutContent,
             parliamentContent: nextProps.content[0].parliamentContent
@@ -41,6 +42,7 @@ class About extends React.Component {
     submitForm = (e) => {
         e.preventDefault()
         const details = {
+            id: this.state.id,
             aboutTitle: this.state.aboutTitle,
             aboutContent: this.state.aboutContent,
             parliamentContent: this.state.parliamentContent

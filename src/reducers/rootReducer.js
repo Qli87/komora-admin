@@ -8,6 +8,7 @@ import contactReducer from './contactReducer'
 import parliamentReducer from './parliamentReducer'
 import advReducer from './advReducer'
 import aboutReducer from './aboutReducer'
+import homePageReducer from './homePageReducer'
 
 export default combineReducers({
     memberReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
     contactReducer,
     parliamentReducer,
     advReducer,
-    aboutReducer
+    aboutReducer,
+    homePageReducer
 })

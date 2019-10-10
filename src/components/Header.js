@@ -21,10 +21,6 @@ export default function() {
                       <ul className="dropdown-menu">
                         <li className="user-header">
                           <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="user" />
-                          <p>
-                            Alexander Pierce - Web Developer
-                            <small>Member since Nov. 2012</small>
-                          </p>
                         </li>
                         <li className="user-body">
                           <div className="row">

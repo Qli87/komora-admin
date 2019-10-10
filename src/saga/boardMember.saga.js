@@ -18,18 +18,18 @@ export function* getBoardMembers() {
     }
 }
 
-export function* addBoardMember(member) {
-    console.log('saga');
-    const response = yield call(addBoardMember_api(member))
-    if(!response || !response.data) {
-        return yield put(addBoardMember_failure('Internal server error for adding board member'))
-    }
-    if(response.status === 200) {
-        return yield put(addBoardMember_success(response.data))
-    } else {
-        return yield put(addBoardMember_failure('Error for adding board member'))
-    }
-}
+// export function* addBoardMember(member) {
+//     console.log('saga');
+//     const response = yield call(addBoardMember_api(member))
+//     if(!response || !response.data) {
+//         return yield put(addBoardMember_failure('Internal server error for adding board member'))
+//     }
+//     if(response.status === 200) {
+//         return yield put(addBoardMember_success(response.data))
+//     } else {
+//         return yield put(addBoardMember_failure('Error for adding board member'))
+//     }
+// }
 
 export function* deleteBoardMember(member) {
     const response = yield call(deleteBoardMember_api(member))
@@ -43,8 +43,8 @@ export function* deleteBoardMember(member) {
     }
 }
 
-export function* getBoardMembersDetails() {
-    const response = yield call(getBoardMemberDetails_api)
+export function* getBoardMembersDetails(action) {
+    const response = yield call(getBoardMemberDetails_api, action.payload)
     if(!response || !response.data) {
         return yield put(getBoardMemberDetails_failure('Internal server error fod getting details for board member'))
     }
@@ -57,7 +57,7 @@ export function* getBoardMembersDetails() {
 
 export function* boardMemberSaga() {
     yield takeEvery(memberConstants.GETBOARDMEMBERS_REQUEST, getBoardMembers)
-    yield takeEvery(memberConstants.BOARDMEMBERADD_REQUEST, addBoardMember)
+    // yield takeEvery(memberConstants.BOARDMEMBERADD_REQUEST, addBoardMember)
     yield takeEvery(memberConstants.BOARDMEMBERDELETE_REQUEST, deleteBoardMember)
     yield takeEvery(memberConstants.GETBOARDMEMBERDETAILS_REQUEST, getBoardMembersDetails)
 }

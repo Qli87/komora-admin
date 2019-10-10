@@ -63,17 +63,24 @@ export default function memberReducer(state = initialState, action) {
                 loading: true
             }
         case memberConstants.GETBOARDMEMBERDETAILS_SUCCESS:
-            const ind = state.boardMembers.findIndex(item => item.id === action.payload)
-            if(ind > -1) {
-                let _member = state.boardMembers.find(item => item.id === action.payload)
-                return {
-                    ...state,
-                    boardMembers: state.boardMembers,
-                    members: state.members,
-                    boardMember: _member
-                }
+            console.log(action.payload);
+            return {
+                ...state,
+                loading: false,
+                boardMembers: state.boardMembers,
+                boardMember: action.payload
             }
-            break;
+            // const ind = state.boardMembers.findIndex(item => item.id === action.payload)
+            // if(ind > -1) {
+            //     let _member = state.boardMembers.find(item => item.id === action.payload)
+            //     return {
+            //         ...state,
+            //         boardMembers: state.boardMembers,
+            //         members: state.members,
+            //         boardMember: _member
+            //     }
+            // }
+            // break;
         case memberConstants.GETBOARDMEMBERDETAILS_FAILURE:
             return {
                 ...state,

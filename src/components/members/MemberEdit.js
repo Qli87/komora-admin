@@ -19,7 +19,8 @@ class MemberEdit extends React.Component {
             errorName: '',
             errorCity: '',
             errorCompany: '',
-            errorPhone: ''
+            errorPhone: '',
+            biography: ''
         }
     }
 
@@ -37,7 +38,8 @@ class MemberEdit extends React.Component {
             name: nextProps.memberDetails.name,
             phone: nextProps.memberDetails.phone,
             city: nextProps.memberDetails.city,
-            company: nextProps.memberDetails.company
+            company: nextProps.memberDetails.company,
+            biography: nextProps.memberDetails.biography
         })
     }
 
@@ -62,6 +64,12 @@ class MemberEdit extends React.Component {
     changeCompany = (input) => {
         this.setState({
             company: input.target.value
+        })
+    }
+
+    changeBiography = (input) => {
+        this.setState({
+            biography: input.target.value
         })
     }
 
@@ -190,6 +198,10 @@ class MemberEdit extends React.Component {
                                 </div>
                             </div>
                             <div className="col-md-6">
+                                <div className="form-group" style={{'paddingTop':'50px'}} >
+                                    <label >Biografija:</label>
+                                    <textarea type="text" className="form-control" placeholder="Unesite biografiju za člana" value={this.state.biography} onChange={this.changeBiography} rows="8"></textarea>
+                                </div>
                                 {/* IMAGE UPLOADER */}
                                 <ImageUploader
                                     withPreview={true}

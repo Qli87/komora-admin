@@ -16,7 +16,8 @@ class MemberAdd extends React.Component {
             errorName: '',
             errorCity: '',
             errorCompany: '',
-            errorPhone: ''
+            errorPhone: '',
+            biography: ''
         }
     }
 
@@ -83,6 +84,12 @@ class MemberAdd extends React.Component {
         return formIsValid
     }
 
+    changeBiography = (input) => {
+        this.setState({
+            biography: input.target.value
+        })
+    }
+
 
     submitForm = (e) => {
         e.preventDefault()
@@ -92,7 +99,8 @@ class MemberAdd extends React.Component {
                 name: this.state.name,
                 phone: this.state.phone,
                 city: this.state.city,
-                company: this.state.company
+                company: this.state.company,
+                biography: this.state.biography
             }
             console.log(member);
             this.props.addMember(member)
@@ -147,6 +155,10 @@ class MemberAdd extends React.Component {
                                         </div>
                             </div>
                             <div className="col-md-6">
+                                <div className="form-group" style={{'paddingTop':'50px'}} >
+                                    <label >Biografija:</label>
+                                    <textarea type="text" className="form-control" placeholder="Unesite biografiju za člana" value={this.state.biography} onChange={this.changeBiography} rows="8"></textarea>
+                                </div>
                                 {/* IMAGE UPLOADER */}
                                 <ImageUploader
                                     withPreview={true}

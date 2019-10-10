@@ -30,7 +30,7 @@ class NewsForCat extends React.Component {
     }
 
     setup = () => {
-        this.props.getNewsForCat()
+        this.props.getNewsForCat(parseInt(this.props.category.id))
     }
 
     componentDidMount = () => {

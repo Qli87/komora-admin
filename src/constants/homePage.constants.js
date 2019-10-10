@@ -1,0 +1,5 @@
+export const homePageConstants = {
+    "HOMEPAGE_REQUEST": "HOME_PAGE_REQUEST",
+    "HOMEPAGE_SUCCESS": "HOME_PAGE_SUCCESS",
+    "HOMEPAGE_FAILURE": "HOME_PAGE_FAILURE"
+}

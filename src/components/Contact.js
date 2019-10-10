@@ -25,13 +25,14 @@ class Contact extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log('nextProps: ', nextProps);
         this.setState({
-            address: nextProps.contactDetails[0].address,
-            workTime: nextProps.contactDetails[0].work_time,
-            phone1: nextProps.contactDetails[0].phone1,
-            phone2: nextProps.contactDetails[0].phone2,
-            email: nextProps.contactDetails[0].email,
-            bankAccount: nextProps.contactDetails[0].bank_account
+            address: nextProps.contactDetails.address,
+            workTime: nextProps.contactDetails.work_time,
+            phone1: nextProps.contactDetails.phone1,
+            phone2: nextProps.contactDetails.phone2,
+            email: nextProps.contactDetails.email,
+            bankAccount: nextProps.contactDetails.bank_account
         })
     }
 
@@ -123,7 +124,7 @@ class Contact extends React.Component {
                                     </div>
                                     <div className="form-group">
                                         <label>Žiro račun:</label>
-                                        <input type="text" className="form-control" placeholder="Unesite broj žiro računa" value={this.state.backAccount} onChange={this.changeBankAccount} />
+                                        <input type="text" className="form-control" placeholder="Unesite broj žiro računa" value={this.state.bankAccount} onChange={this.changeBankAccount} />
                                     </div>
                                 </div>
 

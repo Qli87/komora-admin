@@ -9,6 +9,7 @@ import { parliamentSaga } from './parliament.saga';
 import { loginSaga } from './login.saga';
 import { advertismentSaga } from './advertisment.saga';
 import { aboutSaga } from './about.saga';
+import { homePageSaga } from './homePage.saga'
 
 export default function* rootSaga() {
     yield all ([
@@ -21,6 +22,8 @@ export default function* rootSaga() {
         parliamentSaga(),
         loginSaga(),
         advertismentSaga(),
-        aboutSaga()
+        aboutSaga(),
+        aboutSaga(),
+        homePageSaga()
     ])
 }

@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getDetails: (id) => dispatch(getBoardMemberDetails_success(id)),
+    getDetails: (id) => dispatch(getBoardMemberDetails_request(id)),
     saveChanges: (data) => dispatch(editBiography_request(data))
 })
 
